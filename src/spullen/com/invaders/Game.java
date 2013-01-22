@@ -43,7 +43,7 @@ public class Game extends Canvas implements Runnable {
 	    screen = new Screen(width, height);
 	    keyboard = new Keyboard();
 	    
-	    player = new Player(keyboard);
+	    player = new Player((width / 2) - 5, (height - 24) - 4, keyboard);
 	    
 	    addKeyListener(keyboard);
 	}

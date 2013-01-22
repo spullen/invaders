@@ -41,10 +41,7 @@ public class Player extends Mob {
 	}
 
 	public void render(Screen screen) {
-		sprite = Sprite.enemy1_0;
-		
-		if(updates % 30 > 10 && moving) sprite = Sprite.enemy1_1;
-		
+		sprite = Sprite.player;
 		super.render(screen);
 	}
 }
