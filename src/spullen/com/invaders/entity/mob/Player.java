@@ -23,10 +23,12 @@ public class Player extends Mob {
 		
 		if(updates == Integer.MAX_VALUE) updates = 0;
 		
+		if(input.space) {
+			System.out.println("Fire!");
+		}
+		
 		int xa = 0, ya = 0;
 		
-		if(input.up) ya--;
-		if(input.down) ya++;
 		if(input.left) xa--;
 		if(input.right) xa++;
 		
