@@ -6,12 +6,15 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 import spullen.com.invaders.entity.mob.Enemy1;
 import spullen.com.invaders.entity.mob.Player;
+import spullen.com.invaders.entity.mob.PlayerMissile;
 import spullen.com.invaders.graphics.Screen;
+import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
@@ -34,6 +37,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private Player player;
 	private Enemy1 enemy1 = new Enemy1();
+	
+	public static ArrayList<PlayerMissile> playerMissiles = new ArrayList<PlayerMissile>();
 	
 	public Game() {
 	    Dimension size = new Dimension(width * scale, height * scale);
@@ -103,6 +108,9 @@ public class Game extends Canvas implements Runnable {
 	
 	private void update() {
 		player.update();
+		for(PlayerMissile missile : playerMissiles) {
+			missile.update();
+		}
 		enemy1.update();
 	}
 	
@@ -116,19 +124,13 @@ public class Game extends Canvas implements Runnable {
 	    screen.clear();
 	    
 	    player.render(screen);
-	   
+	    
+	    for(PlayerMissile missile : playerMissiles) {
+			missile.render(screen);
+		}
+	    
 	    enemy1.setCoordinates(100, 50);
 	    enemy1.render(screen);
-	    /*
-	    screen.renderSprite(8, 8, Sprite.enemy1_0);
-	    screen.renderSprite(8, 24, Sprite.enemy1_1);
-	    screen.renderSprite(50, 8, Sprite.enemy2_0);
-	    screen.renderSprite(50, 24, Sprite.enemy2_1);
-	    screen.renderSprite(100, 64, Sprite.enemy3_0);
-	    screen.renderSprite(100, 80, Sprite.enemy3_1);
-	    screen.renderSprite(30, 10, Sprite.mothership);
-	    screen.renderSprite(50, 150, Sprite.player);
-	    */
 	    
 	    for(int i = 0; i < pixels.length; i++) {
 	    	pixels[i] = screen.pixels[i];

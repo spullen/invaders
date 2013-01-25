@@ -1,6 +1,6 @@
 package spullen.com.invaders.entity.mob;
 
-import spullen.com.invaders.graphics.Screen;
+import spullen.com.invaders.Game;
 import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
@@ -11,11 +11,13 @@ public class Player extends Mob {
 	public Player(int x, int y, Keyboard input) {
 		super(x, y);
 		this.input = input;
+		this.sprite = Sprite.player;
 	}
 	
 	public Player(Keyboard input) {
 		super();
 		this.input = input;
+		this.sprite = Sprite.player;
 	}
 
 	public void update() {
@@ -24,7 +26,12 @@ public class Player extends Mob {
 		if(updates == Integer.MAX_VALUE) updates = 0;
 		
 		if(input.space) {
-			System.out.println("Fire!");
+			int missileStartX = x + (sprite.WIDTH / 2);
+			int missileStartY = y;
+			
+			System.out.println("Missile Start X: " + missileStartX + ", Y: " + missileStartY);
+			
+			Game.playerMissiles.add(new PlayerMissile(missileStartX, missileStartY));
 		}
 		
 		int xa = 0, ya = 0;
@@ -40,10 +47,5 @@ public class Player extends Mob {
 		}
 		
 		updates++;
-	}
-
-	public void render(Screen screen) {
-		sprite = Sprite.player;
-		super.render(screen);
 	}
 }

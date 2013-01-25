@@ -13,7 +13,8 @@ public class Sprite {
 	public static Sprite enemy3_0	= new Sprite(12, 8, 24, 0, SpriteSheet.entities);
 	public static Sprite enemy3_1	= new Sprite(12, 8, 24, 8, SpriteSheet.entities);
 	public static Sprite mothership = new Sprite(16, 8, 40, 0, SpriteSheet.entities);
-	public static Sprite player 	= new Sprite(12, 8, 56, 0, SpriteSheet.entities);
+	public static Sprite player 	= new Sprite(11, 8, 56, 0, SpriteSheet.entities);
+	public static Sprite playerMissile = new Sprite(1, 4, 64, 4, SpriteSheet.entities);
 	
 	public Sprite(int width, int height, int x, int y, SpriteSheet sheet) {
 		WIDTH = width;
