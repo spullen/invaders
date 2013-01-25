@@ -38,6 +38,10 @@ public abstract class Mob extends Entity {
 		this.sprite = sprite;
 	}
 	
+	public Sprite getSprite() {
+		return this.sprite;
+	}
+	
 	public void move(int xa, int ya) {
 		if(xa > 0) direction = 1;
 		if(xa < 0) direction = 3;

@@ -109,7 +109,8 @@ public class Game extends Canvas implements Runnable {
 	private void update() {
 		player.update();
 		for(PlayerMissile missile : playerMissiles) {
-			missile.update();
+			if(missile.isRemoved()) playerMissiles.remove(missile);
+			else missile.update();
 		}
 		enemy1.update();
 	}

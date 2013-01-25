@@ -1,6 +1,7 @@
 package spullen.com.invaders.entity.mob;
 
 import spullen.com.invaders.Game;
+import spullen.com.invaders.graphics.Screen;
 import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
@@ -26,8 +27,6 @@ public class Player extends Mob {
 		if(input.space) {
 			int missileStartX = x + (sprite.WIDTH / 2);
 			int missileStartY = y;
-			
-			System.out.println("Missile Start X: " + missileStartX + ", Y: " + missileStartY);
 			
 			Game.playerMissiles.add(new PlayerMissile(missileStartX, missileStartY));
 		}
