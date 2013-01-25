@@ -36,8 +36,10 @@ public class Player extends Mob {
 		if(input.right) xa++;
 		
 		if(xa != 0 || ya != 0) {
-			move(xa, ya);
-			moving = true;
+			if((x + xa) >= 0 && (x + xa + sprite.WIDTH) <= Game.width) {
+				move(xa, ya);
+				moving = true;
+			}
 		} else {
 			moving = false;	
 		}
