@@ -1,7 +1,6 @@
 package spullen.com.invaders.entity.mob;
 
 import spullen.com.invaders.Game;
-import spullen.com.invaders.graphics.Screen;
 import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 

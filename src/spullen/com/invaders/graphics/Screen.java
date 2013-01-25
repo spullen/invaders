@@ -1,6 +1,5 @@
 package spullen.com.invaders.graphics;
 
-import spullen.com.invaders.entity.mob.Player;
 
 public class Screen {
 

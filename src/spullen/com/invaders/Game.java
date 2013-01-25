@@ -14,7 +14,6 @@ import spullen.com.invaders.entity.mob.Enemy1;
 import spullen.com.invaders.entity.mob.Player;
 import spullen.com.invaders.entity.mob.PlayerMissile;
 import spullen.com.invaders.graphics.Screen;
-import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
