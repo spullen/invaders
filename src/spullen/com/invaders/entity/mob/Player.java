@@ -23,8 +23,6 @@ public class Player extends Mob {
 	public void update() {
 		input.update();
 		
-		if(updates == Integer.MAX_VALUE) updates = 0;
-		
 		if(input.space) {
 			int missileStartX = x + (sprite.WIDTH / 2);
 			int missileStartY = y;
@@ -46,6 +44,6 @@ public class Player extends Mob {
 			moving = false;	
 		}
 		
-		updates++;
+		super.update();
 	}
 }

@@ -10,6 +10,9 @@ public class PlayerMissile extends Mob {
 	}
 	
 	public void update() {
-		
+		if(updates % 5 == 0) {
+			move(0, -1);
+		}
+		super.update();
 	}
 }
