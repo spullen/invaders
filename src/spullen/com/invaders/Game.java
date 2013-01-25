@@ -38,6 +38,7 @@ public class Game extends Canvas implements Runnable {
 	private Enemy1 enemy1 = new Enemy1();
 	
 	public static ArrayList<PlayerMissile> playerMissiles = new ArrayList<PlayerMissile>();
+	public static ArrayList<PlayerMissile> removedPlayerMissiles = new ArrayList<PlayerMissile>();
 	
 	public Game() {
 	    Dimension size = new Dimension(width * scale, height * scale);
@@ -107,9 +108,12 @@ public class Game extends Canvas implements Runnable {
 	
 	private void update() {
 		player.update();
+		for(PlayerMissile missile : removedPlayerMissiles) {
+			playerMissiles.remove(missile);
+		}
+		removedPlayerMissiles.clear();
 		for(PlayerMissile missile : playerMissiles) {
-			if(missile.isRemoved()) playerMissiles.remove(missile);
-			else missile.update();
+			missile.update();
 		}
 		enemy1.update();
 	}
