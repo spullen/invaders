@@ -53,6 +53,6 @@ public abstract class Mob extends Entity {
 	}
 	
 	public void render(Screen screen) {
-		if(sprite != null && !removed) screen.renderSprite(x, y, sprite);
+		if(sprite != null && !isRemoved()) screen.renderSprite(x, y, sprite);
 	}
 }
