@@ -129,12 +129,12 @@ public class Game extends Canvas implements Runnable {
 	    
 	    player.render(screen);
 	    
+	    enemy1.setCoordinates(100, 50);
+	    enemy1.render(screen);
+	    
 	    for(PlayerMissile missile : playerMissiles) {
 			missile.render(screen);
 		}
-	    
-	    enemy1.setCoordinates(100, 50);
-	    enemy1.render(screen);
 	    
 	    for(int i = 0; i < pixels.length; i++) {
 	    	pixels[i] = screen.pixels[i];
