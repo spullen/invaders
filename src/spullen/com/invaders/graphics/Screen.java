@@ -1,6 +1,5 @@
 package spullen.com.invaders.graphics;
 
-
 public class Screen {
 
 	public int width, height;

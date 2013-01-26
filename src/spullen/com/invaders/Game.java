@@ -10,10 +10,11 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import spullen.com.invaders.entity.mob.Enemy1;
+import spullen.com.invaders.entity.mob.Enemy;
 import spullen.com.invaders.entity.mob.Player;
 import spullen.com.invaders.entity.mob.PlayerMissile;
 import spullen.com.invaders.graphics.Screen;
+import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
@@ -35,7 +36,7 @@ public class Game extends Canvas implements Runnable {
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	private Player player;
-	private Enemy1 enemy1 = new Enemy1();
+	private Enemy enemy1 = new Enemy(100, 50, Sprite.enemy1_0);
 	
 	public static ArrayList<PlayerMissile> playerMissiles = new ArrayList<PlayerMissile>();
 	public static ArrayList<PlayerMissile> removedPlayerMissiles = new ArrayList<PlayerMissile>();
@@ -129,7 +130,6 @@ public class Game extends Canvas implements Runnable {
 	    
 	    player.render(screen);
 	    
-	    enemy1.setCoordinates(100, 50);
 	    enemy1.render(screen);
 	    
 	    for(PlayerMissile missile : playerMissiles) {
