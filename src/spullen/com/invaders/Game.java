@@ -10,11 +10,10 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import spullen.com.invaders.entity.mob.Enemy;
 import spullen.com.invaders.entity.mob.Player;
 import spullen.com.invaders.entity.mob.PlayerMissile;
+import spullen.com.invaders.formations.EnemyFormation;
 import spullen.com.invaders.graphics.Screen;
-import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
@@ -36,7 +35,7 @@ public class Game extends Canvas implements Runnable {
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	private Player player;
-	private Enemy enemy1 = new Enemy(100, 50, Sprite.enemy1_0);
+	private EnemyFormation enemyFormation;
 	
 	public static ArrayList<PlayerMissile> playerMissiles = new ArrayList<PlayerMissile>();
 	public static ArrayList<PlayerMissile> removedPlayerMissiles = new ArrayList<PlayerMissile>();
@@ -50,6 +49,7 @@ public class Game extends Canvas implements Runnable {
 	    keyboard = new Keyboard();
 	    
 	    player = new Player((width / 2) - 5, (height - 24) - 4, keyboard);
+	    enemyFormation = new EnemyFormation(10, 10);
 	    
 	    addKeyListener(keyboard);
 	}
@@ -109,14 +109,16 @@ public class Game extends Canvas implements Runnable {
 	
 	private void update() {
 		player.update();
+		enemyFormation.update();
+		
 		for(PlayerMissile missile : removedPlayerMissiles) {
 			playerMissiles.remove(missile);
 		}
 		removedPlayerMissiles.clear();
+		
 		for(PlayerMissile missile : playerMissiles) {
 			missile.update();
 		}
-		enemy1.update();
 	}
 	
 	private void render() {
@@ -130,8 +132,8 @@ public class Game extends Canvas implements Runnable {
 	    
 	    player.render(screen);
 	    
-	    enemy1.render(screen);
-	    
+	    enemyFormation.render(screen);
+	    	    
 	    for(PlayerMissile missile : playerMissiles) {
 			missile.render(screen);
 		}
