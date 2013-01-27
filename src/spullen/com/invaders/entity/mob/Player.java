@@ -7,7 +7,7 @@ import spullen.com.invaders.input.Keyboard;
 public class Player extends Mob {
 	
 	private Keyboard input;
-	private int lastFire = 0;
+	private int fireCooldown = 0;
 	
 	public Player(int x, int y, Keyboard input) {
 		super(x, y);
@@ -24,14 +24,15 @@ public class Player extends Mob {
 	public void update() {
 		input.update();
 		
-		if(input.space && ((updates - lastFire) > 60 || lastFire == 0)) {
+		if(input.space && fireCooldown == 0) {
 			int missileStartX = x + (sprite.WIDTH / 2);
 			int missileStartY = y;
 			
 			Game.playerMissiles.add(new PlayerMissile(missileStartX, missileStartY));
 			
-			lastFire = updates;
+			fireCooldown = 180;
 		}
+		if(fireCooldown > 0) fireCooldown--;
 		
 		int xa = 0, ya = 0;
 		
