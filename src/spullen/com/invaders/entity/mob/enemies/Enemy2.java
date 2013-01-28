@@ -1,5 +1,6 @@
 package spullen.com.invaders.entity.mob.enemies;
 
+import spullen.com.invaders.entity.mob.Enemy;
 import spullen.com.invaders.graphics.Sprite;
 
 public class Enemy2 extends Enemy {

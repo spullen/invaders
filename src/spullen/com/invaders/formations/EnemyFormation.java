@@ -1,6 +1,6 @@
 package spullen.com.invaders.formations;
 
-import spullen.com.invaders.entity.mob.enemies.Enemy;
+import spullen.com.invaders.entity.mob.Enemy;
 import spullen.com.invaders.entity.mob.enemies.Enemy1;
 import spullen.com.invaders.entity.mob.enemies.Enemy2;
 import spullen.com.invaders.entity.mob.enemies.Enemy3;
