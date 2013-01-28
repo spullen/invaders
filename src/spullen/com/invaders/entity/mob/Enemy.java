@@ -3,27 +3,37 @@ package spullen.com.invaders.entity.mob;
 import spullen.com.invaders.Game;
 
 
-public class Enemy extends Mob {
+public abstract class Enemy extends Mob {
 
 	protected boolean exploding = false;
-	protected int explosionCooldown = 180;
+	protected int explosionCooldown = 120;
 	
 	public Enemy(int x, int y) {
 		super(x, y);
 	}
 	
 	public void update() {
-		checkForCollision();
 		super.update();
+		
+		checkForCollision();
+		
+		if(exploding) {
+			explosionCooldown--;
+		}
+		if(explosionCooldown == 0) {
+			removed = true;
+		}
 	}
 	
-	private void checkForCollision() {
+	protected void checkForCollision() {
 		int lowerLeftX  = x;
-		int lowerRightX = x + sprite.WIDTH; 
+		int lowerRightX = x + sprite.WIDTH;
 		int lowerY = y + sprite.HEIGHT;
 		
 		for(PlayerMissile missile : Game.playerMissiles) {
-			if(missile.y < lowerY && ((missile.x > lowerLeftX) || (missile.x < lowerRightX))) {
+			if(missile.y < lowerY && missile.x > lowerLeftX && missile.x < lowerRightX) {
+				System.out.println("X: " + x + ", Y: " + y);
+				
 				int pixelX = missile.x - x;
 				int pixelY = missile.y - y;
 				int pixel = sprite.pixels[pixelX + pixelY * sprite.WIDTH];

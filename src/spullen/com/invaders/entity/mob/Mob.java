@@ -6,7 +6,8 @@ import spullen.com.invaders.graphics.Sprite;
 
 public abstract class Mob extends Entity {
 	
-	protected int x = 0, y = 0;
+	protected int x = 0;
+	protected int y = 0;
 	protected Sprite sprite;
 	protected int direction = 0;
 	protected boolean moving = false;
