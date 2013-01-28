@@ -31,7 +31,7 @@ public abstract class Enemy extends Mob {
 		int lowerY = y + sprite.HEIGHT;
 		
 		for(PlayerMissile missile : Game.playerMissiles) {
-			if(missile.y < lowerY && missile.x > lowerLeftX && missile.x < lowerRightX) {
+			if(missile.y < lowerY && missile.x >= lowerLeftX && missile.x <= lowerRightX) {
 				System.out.println("X: " + x + ", Y: " + y);
 				
 				int pixelX = missile.x - x;
