@@ -34,8 +34,8 @@ public abstract class Enemy extends Mob {
 			if(missile.y < lowerY && missile.x >= lowerLeftX && missile.x <= lowerRightX) {
 				System.out.println("X: " + x + ", Y: " + y);
 				
-				int pixelX = missile.x - x;
-				int pixelY = missile.y - y;
+				int pixelX = missile.x - x - 1;
+				int pixelY = missile.y - y - 1;
 				int pixel = sprite.pixels[pixelX + pixelY * sprite.WIDTH];
 				if(pixel != 0xffff00ff) {
 					System.out.println("Hit!");
