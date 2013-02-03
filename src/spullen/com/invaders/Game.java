@@ -14,6 +14,7 @@ import spullen.com.invaders.entity.mob.Player;
 import spullen.com.invaders.entity.mob.PlayerMissile;
 import spullen.com.invaders.formations.EnemyFormation;
 import spullen.com.invaders.graphics.Screen;
+import spullen.com.invaders.graphics.Sprite;
 import spullen.com.invaders.input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
@@ -133,6 +134,8 @@ public class Game extends Canvas implements Runnable {
 	    player.render(screen);
 	    
 	    enemyFormation.render(screen);
+	    
+	    //screen.renderSprite(100, 100, Sprite.enemyExplosion0);
 	    	    
 	    for(PlayerMissile missile : playerMissiles) {
 			missile.render(screen);

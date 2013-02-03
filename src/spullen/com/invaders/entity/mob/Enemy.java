@@ -1,6 +1,7 @@
 package spullen.com.invaders.entity.mob;
 
 import spullen.com.invaders.Game;
+import spullen.com.invaders.graphics.Sprite;
 
 
 public abstract class Enemy extends Mob {
@@ -15,14 +16,16 @@ public abstract class Enemy extends Mob {
 	public void update() {
 		super.update();
 		
-		checkForCollision();
-		
 		if(exploding) {
 			explosionCooldown--;
+			
+			if(explosionCooldown % 20 >= 10) sprite = Sprite.enemyExplosion1;
+			else sprite = Sprite.enemyExplosion0;
+		} else {
+			checkForCollision();
 		}
-		if(explosionCooldown == 0) {
-			removed = true;
-		}
+		
+		if(explosionCooldown == 0) removed = true;
 	}
 	
 	protected void checkForCollision() {

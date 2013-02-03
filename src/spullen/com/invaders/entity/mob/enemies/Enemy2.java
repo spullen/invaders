@@ -14,7 +14,9 @@ public class Enemy2 extends Enemy {
 	public void update() {
 		super.update();
 		
-		if(updates % 40 > 15) sprite = Sprite.enemy2_1;
-		else sprite = Sprite.enemy2_0;
+		if(!exploding) {
+			if(updates % 40 > 15) sprite = Sprite.enemy2_1;
+			else sprite = Sprite.enemy2_0;
+		}
 	}
 }

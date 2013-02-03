@@ -16,6 +16,9 @@ public class Sprite {
 	public static Sprite player 	= new Sprite(11, 8, 56, 0, SpriteSheet.entities);
 	public static Sprite playerMissile = new Sprite(1, 4, 64, 4, SpriteSheet.entities);
 	
+	public static Sprite enemyExplosion0 = new Sprite(8, 0, 16, SpriteSheet.entities);
+	public static Sprite enemyExplosion1 = new Sprite(8, 0, 24, SpriteSheet.entities);
+	
 	public Sprite(int width, int height, int x, int y, SpriteSheet sheet) {
 		WIDTH = width;
 		HEIGHT = height;
